@@ -1,7 +1,8 @@
 <?php
     $login_nickname = $_POST['username'];
     $login_password = md5($_POST['password']);
-    print_r($login_password);
+
+
     //DataBase data
     const DB_HOST = 'localhost';
     const DB_USER = 'mysql';
@@ -22,10 +23,14 @@
         $table[] = $row;
     }
 //    print_r($table);
+
     for($i = 0; $i < count($table); $i++){
+        setcookie('username',$login_nickname, time() + 3600, '/');
+        setcookie('password', $login_password, time() + 3600, '/');
         if($table[$i]['username'] == $login_nickname && $table[$i]['password'] == $login_password){
+
             header('location: grat.php');
-            exit();
+                exit();
         }else {
             echo 'Что-то пошло не так';
             header('location: sorry.php');

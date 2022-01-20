@@ -13,6 +13,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<?php
+//    print_r($_COOKIE['username']);
+//    print_r($_COOKIE['password']);
+//DataBase data
+const DB_HOST = 'localhost';
+const DB_USER = 'mysql';
+const DB_PASSWORD = '';
+const DB_DATABASE = 'mysite';
+
+//DataBase connect
+$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_DATABASE);
+$sql = "SELECT `username`, `password` FROM `user` WHERE 1";
+$result_set = $mysqli ->query($sql);
+$table = [];
+while(($row = $result_set->fetch_assoc()) != false){
+    $table[] = $row;
+}
+foreach ($table as $item => $value)
+    if($value['username'] == $_COOKIE['username'] && $value['password'] == $_COOKIE['password'] ){
+
+
+?>
 <div class="page">
     <div id='root_container' class="container pt-5">
         <div class="alert alert-success" role="alert">
@@ -23,5 +45,11 @@
         </div>
     </div>
 </div>
+<?php
+    }else {
+        echo 'Sorry this page has not available'.'<br>';
+    }
+?>
+
 </body>
 </html>

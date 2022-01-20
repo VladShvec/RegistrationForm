@@ -1,0 +1,13 @@
+.root_container{
+
+}
+.root{
+    height: 100vh;
+    background-image: url(https://wallpaper.dog/large/5549638.jpg);
+    background-size: contain;
+}
+.page{
+    height: 100vh;
+    width: 100%;
+    background-image: url(https://oir.mobi/uploads/posts/2021-03/1616432497_27-p-zadnii-fon-dlya-yutuba-34.jpg);
+}

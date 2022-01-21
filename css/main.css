@@ -11,3 +11,13 @@
     width: 100%;
     background-image: url(https://oir.mobi/uploads/posts/2021-03/1616432497_27-p-zadnii-fon-dlya-yutuba-34.jpg);
 }
+.buttons_container{
+    display: flex;
+    justify-content: center;
+}
+#off{
+    display: none;
+}
+.red-border{
+    border: 2px solid red;
+}

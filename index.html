@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegForm</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<div class="root">
+    <div id='root_container' class="container pt-5">
+        <form action="form_check.php" id="form"  method="post" class="w-50 container">
+            <input type="text" onfocusout="nameFunc(event)" id="name" class="form-control mt-3 " name="name" placeholder="Please write your name">
+            <p class="text-danger d-none"  id="nameWar">
+                <b>Поле пустое, пожалуйста ведите ваше имя</b>
+                <br>
+                <span>Имя должно быт не короче 3 букв</span>
+            </p>
+            <input type="text" id="surname" onfocusout="surnameFunc(event)" class="form-control mt-3" name="surname"
+                   placeholder="Please write your surname">
+            <p class="text-danger d-none"  id="surnameWar">
+                <b>Поле пустое, пожалуйста ведите вашу фамилию</b>
+                <br>
+                <span>Фамилия должна быть не короче 3 букв</span>
+            </p>
+            <input type="text" id="email" onfocusout="emailFunc(event,email,form)" class="form-control mt-3" name="email" placeholder="Please write your email">
+            <p class="text-danger d-none"  id="emailWar">
+                <b>Поле пустое, пожалуйста ведите ваш емейл</b>
+                <br>
+                <span>Емейл должен содержать в себе символ @</span>
+            </p>
+            <input type="text" id="username"  onfocusout="userFunc(event,email,form)" class="form-control mt-3" name="username"
+                   placeholder="Please write your nickname">
+            <p class="text-danger d-none"  id="userWar">
+                <b>Поле пустое, пожалуйста ведите ваш никнейм</b>
+                <br>
+                <span>Никнейм должен содержать минимум 4 символов</span>
+            </p>
+
+            <input type="text" id="password" onfocusout="passwordFunc(event,email,form)" class="form-control mt-3 mb-5" name="password"
+                   placeholder="Please write your password">
+            <p class="text-danger d-none"  id="passwordWar">
+                <b>Поле пустое, пожалуйста ведите Пароль</b>
+                <br>
+                <span>Пароль должен содержать минимум 8 символов</span>
+            </p>
+            <input type="submit"  value="отправить" class="btn btn-success">
+        </form>
+    </div>
+</div>
+<script src="js/form_check.js"></script>
+</body>
+</html>

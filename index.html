@@ -11,7 +11,7 @@
 <body>
 <div class="root">
     <div id='root_container' class="container pt-5">
-        <form action="form_check.php" id="form"  method="post" class="w-50 container">
+        <form action="form_check.php"  id="form"  method="post" class="w-50 container">
             <input type="text" onfocusout="nameFunc(event)" id="name" class="form-control mt-3 " name="name" placeholder="Please write your name">
             <p class="text-danger d-none"  id="nameWar">
                 <b>Поле пустое, пожалуйста ведите ваше имя</b>
@@ -46,7 +46,7 @@
                 <br>
                 <span>Пароль должен содержать минимум 8 символов</span>
             </p>
-            <input type="submit"  value="отправить" class="btn btn-success">
+            <input type="submit"  id="submit"  value="отправить" class="btn btn-success">
         </form>
     </div>
 </div>

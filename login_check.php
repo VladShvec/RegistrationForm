@@ -1,16 +1,20 @@
 <?php
-    $login_nickname = $_POST['username'];
-    $login_password = md5($_POST['password']);
+    include 'mysqli.php';
+    if($_POST['password'] !== '' && strlen($_POST['password']) > 5 ){
+        print_r($_POST['password']);
+        $login_password = md5($_POST['password']);
+    }else{
+        header('Location: sorry.php');
+    }
+    if($_POST['username'] !== '' && strlen($_POST['username']) > 2 ){
+        print_r($_POST['username']);
+        $login_nickname = $_POST['username'];
+    }else{
+        header('Location: sorry.php');
+    }
 
 
-    //DataBase data
-    const DB_HOST = 'localhost';
-    const DB_USER = 'mysql';
-    const DB_PASSWORD = '';
-    const DB_DATABASE = 'mysite';
 
-    //DataBase connect
-    $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_DATABASE);
 
     //Get a table
     $sql = "SELECT `id`, `name`, `surname`, `email`, `username`, `password` FROM `user` WHERE 1";
@@ -31,9 +35,7 @@
 
             header('location: grat.php');
                 exit();
-        }else {
-            echo 'Что-то пошло не так';
-            header('location: sorry.php');
-
+        }else{
+            header('Location: sorry.php');
         }
     }
